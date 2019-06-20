@@ -80,19 +80,8 @@ WSGI_APPLICATION = 'Fetcher.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bank_db',
-        'USER': 'postgres',
-        'PASSWORD': 'mynewpassword',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
