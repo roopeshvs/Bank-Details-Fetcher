@@ -1,1 +1,1 @@
-web: gunicorn --chdir Fetcher wsgi.py
+web: gunicorn manage.py:app
