@@ -3,3 +3,4 @@ djangorestframework
 djangorestframework_simplejwt
 gunicorn
 psycopg2
+dj-database-url
