@@ -2,7 +2,7 @@ from django.urls import path, include
 from django.conf.urls import url
 from . import views
 from rest_framework import routers, viewsets
-from drf_multiple_model import pagination
+
 from rest_framework.urlpatterns import format_suffix_patterns
 from .views import DetailView, ListView
 from rest_framework_simplejwt import views as jwt_views
