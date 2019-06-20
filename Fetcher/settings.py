@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'Fetcher.wsgi.application'
 
 DATABASES = {
     'default': {
-        'CONNECTION' : dj_database_url.config(conn_max_age=600, ssl_require=True),
+        'CONN' : dj_database_url.config(conn_max_age=600, ssl_require=True),
     }
 }
 
