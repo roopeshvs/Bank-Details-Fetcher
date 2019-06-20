@@ -2,3 +2,4 @@ django
 djangorestframework
 djangorestframework_simplejwt
 gunicorn
+psycopg2
