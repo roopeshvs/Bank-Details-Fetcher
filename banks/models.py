@@ -73,35 +73,6 @@ class AuthUserUserPermissions(models.Model):
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
-
-class Banks(models.Model):
-    name = models.CharField(max_length=49, blank=True, null=True)
-    id = models.BigIntegerField(primary_key=True)
-
-    class Meta:
-        managed = False
-        db_table = 'banks'
-        verbose_name_plural = "banks"
-    def __str__(self):
-        return self.name
-
-class Branches(models.Model):
-    ifsc = models.CharField(primary_key=True, max_length=11)
-    bank = models.ForeignKey(Banks, models.DO_NOTHING, blank=True, null=True)
-    branch = models.CharField(max_length=74, blank=True, null=True)
-    address = models.CharField(max_length=195, blank=True, null=True)
-    city = models.CharField(max_length=50, blank=True, null=True)
-    district = models.CharField(max_length=50, blank=True, null=True)
-    state = models.CharField(max_length=26, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'branches'
-        verbose_name_plural = "branches"
-    def __str__(self):
-        return self.ifsc
-
-
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -144,3 +115,32 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+
+class Banks(models.Model):
+    name = models.CharField(max_length=49, blank=True, null=True)
+    id = models.BigIntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'banks'
+        verbose_name_plural = "banks"
+    def __str__(self):
+        return self.name
+
+
+class Branches(models.Model):
+    ifsc = models.CharField(primary_key=True, max_length=11)
+    bank = models.ForeignKey(Banks, models.DO_NOTHING, blank=True, null=True)
+    branch = models.CharField(max_length=74, blank=True, null=True)
+    address = models.CharField(max_length=195, blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
+    district = models.CharField(max_length=50, blank=True, null=True)
+    state = models.CharField(max_length=26, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'branches'
+        verbose_name_plural = "branches"
+    def __str__(self):
+        return self.ifsc
