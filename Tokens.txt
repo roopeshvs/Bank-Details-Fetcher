@@ -1,0 +1,15 @@
+Initial Refresh and Access Tokens:
+
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU2MTE3OTA2MiwianRpIjoiYTQyODdmMGE2MTA4NDVmOTk2MGQwNDFhNjk2MzlmMjgiLCJ1c2VyX2lkIjoxfQ.JEmrAautFA_JCuzoQuPsMQFu1q2oLhxToB71RZvsC80",
+    
+"access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYxMDkyOTYyLCJqdGkiOiI2M2ZkOGI4NjE2NjM0NTU2YjAxNDJkYWMxZjM2MzUxZSIsInVzZXJfaWQiOjF9.OyP7RgBOSeLJ-GbpU_zuPSdbZnmISetLkXlUKorcK1Q"
+}
+
+
+URLS :  https://secure-woodland-74914.herokuapp.com/api/token/
+	https://secure-woodland-74914.herokuapp.com/api/token/refresh/
+
+
+username : user
+password : password123
