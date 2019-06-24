@@ -10,6 +10,7 @@ from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination
 from django.http import JsonResponse
 from rest_framework.permissions import IsAuthenticated 
+from django.conf import settings
 
 class BankView(viewsets.ModelViewSet):
          
@@ -35,6 +36,7 @@ class ListView(APIView):
     def get(self, request, city, bank):
         branch_qset = Branches.objects.filter(
             city__iexact=city, bank__name__icontains=bank)
+        page = self.paginate_queryset(self.branch_qset)
         serializer = BranchesSerializer(branch_qset, many=True)
         return self.get_paginated_response(serializer.data)
 
