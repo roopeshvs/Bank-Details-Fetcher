@@ -21,7 +21,7 @@ class BranchesView(viewsets.ModelViewSet):
         queryset = Branches.objects.all()
         serializer_class = BranchesSerializer
         
-class DetailView(APIView):
+class DetailView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,) 
     def get(self, request, ifsc):
         branch = Branches.objects.filter(ifsc__iexact=ifsc).first()
@@ -29,7 +29,7 @@ class DetailView(APIView):
         return Response(serializer.data)
 
 
-class ListView(APIView):
+class ListView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,) 
     pagination_class = LimitOffsetPagination
     def get(self, request, city, bank):
