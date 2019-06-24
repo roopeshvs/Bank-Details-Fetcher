@@ -36,4 +36,5 @@ class ListView(APIView):
         branch_qset = Branches.objects.filter(
             city__iexact=city, bank__name__icontains=bank)
         serializer = BranchesSerializer(branch_qset, many=True)
+        serializer = self.get_pagination_serializer(serializer)
         return Response(serializer.data)
