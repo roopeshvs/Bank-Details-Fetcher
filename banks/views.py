@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from .serializers import BankSerializer, BranchesSerializer
 from django.shortcuts import render
 from django.http import JsonResponse
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated 
 
 class BankView(viewsets.ModelViewSet):
@@ -30,7 +31,7 @@ class DetailView(APIView):
 
 class ListView(APIView):
     permission_classes = (IsAuthenticated,) 
-    def get(self, request, city, bank):
+    def get(self, request, city, bank, LimitOffsetPagination):
         branch_qset = Branches.objects.filter(
             city__iexact=city, bank__name__icontains=bank)
         serializer = BranchesSerializer(branch_qset, many=True)
