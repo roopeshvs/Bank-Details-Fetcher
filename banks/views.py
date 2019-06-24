@@ -30,8 +30,9 @@ class DetailView(APIView):
 
 class ListView(APIView):
     permission_classes = (IsAuthenticated,) 
-    def get(self, request, city, bank, ):
+    pagination_class = LimitOffsetPagination
+    def get(self, request, city, bank):
         branch_qset = Branches.objects.filter(
             city__iexact=city, bank__name__icontains=bank)
         serializer = BranchesSerializer(branch_qset, many=True)
-        return get_paginated_response(serializer.data)
+        return Response(serializer.data)
