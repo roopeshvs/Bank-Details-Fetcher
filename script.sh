@@ -1,5 +1,5 @@
 #!/bin/bash
-TOKEN=$(curl -s -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{"username":"roopesh","password":"roopesh"}' https://secure-woodland-74914.herokuapp.com/api/token/ | ./jq-win64.exe -r '.access')
+TOKEN=$(curl -s -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{"username":"roopesh","password":"roopesh"}' https://secure-woodland-74914.herokuapp.com/api/token/ | jq -r '.access')
 
 curl http://secure-woodland-74914.herokuapp.com/banks/?limit=10&offset=20 && echo "1 - Bank List"
 curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" http://secure-woodland-74914.herokuapp.com/branchlist/?limit=15&offset=100 && echo "2 - Branches List"
